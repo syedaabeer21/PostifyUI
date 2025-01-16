@@ -35,7 +35,7 @@ const Home = () => {
 
         const storedUsername = localStorage.getItem('username') || "Unknown User";
         try {
-            const response = await axios.post('http://localhost:3000/api/v1/post',
+            const response = await axios.post('https://postify-black.vercel.app/api/v1/post',
                 { content: content.current.value},
                 { headers: { Authorization: `Bearer ${token}` } }
             );
