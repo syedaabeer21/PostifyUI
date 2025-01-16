@@ -12,7 +12,7 @@ const Login = () => {
     const loginUser = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/api/v1/login', {
+            const response = await axios.post('https://postify-black.vercel.app/api/v1/login', {
                 email: email.current.value,
                 password: password.current.value
             });

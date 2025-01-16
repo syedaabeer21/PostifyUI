@@ -20,7 +20,7 @@ const Home = () => {
 
     const fetchPosts = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/api/v1/post');
+            const response = await axios.get('https://postify-black.vercel.app/api/v1/post');
             console.log(response)
             const sortedPosts = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
             setPosts(sortedPosts);
@@ -53,7 +53,7 @@ const Home = () => {
     const likePost = async (postId) => {
         if (!token) return showAlert("Please log in to like a post.", "alert-error");
         try {
-            await axios.post('http://localhost:3000/api/v1/like',
+            await axios.post('https://postify-black.vercel.app/api/v1/like',
                 { postId },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -67,7 +67,7 @@ const Home = () => {
 
     const fetchLikedUsers = async (postId) => {
         try {
-            const response = await axios.get(`http://localhost:3000/api/v1/likes/${postId}`);
+            const response = await axios.get(`https://postify-black.vercel.app/api/v1/likes/${postId}`);
             setLikedUsers(response.data.users);
             setIsLikeModalOpen(true);
         } catch (error) {
@@ -77,7 +77,7 @@ const Home = () => {
 
     const fetchComments = async (postId) => {
         try {
-            const response = await axios.get(`http://localhost:3000/api/v1/comments/${postId}`);
+            const response = await axios.get(`https://postify-black.vercel.app/api/v1/comments/${postId}`);
             setComments(response.data.comments);
             setIsCommentModalOpen(true);
         } catch (error) {
@@ -88,7 +88,7 @@ const Home = () => {
     const addComment = async (postId, commentText) => {
         if (!token) return showAlert("Please log in to add a comment.", "alert-error");
         try {
-            const response = await axios.post('http://localhost:3000/api/v1/comment',
+            const response = await axios.post('https://postify-black.vercel.app/api/v1/comment',
                 { postId, text: commentText },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

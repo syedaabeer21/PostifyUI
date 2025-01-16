@@ -13,7 +13,7 @@ const Register = () => {
     const registerUser = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('http://localhost:3000/api/v1/register', {
+            await axios.post('https://postify-black.vercel.app/api/v1/register', {
                 username: name.current.value,
                 email: email.current.value,
                 password: password.current.value
